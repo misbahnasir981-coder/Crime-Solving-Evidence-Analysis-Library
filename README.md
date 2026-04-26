@@ -18,13 +18,13 @@ within a real-world inspired problem domain.
 * Compare evidence based on type and priority (==, <)
 * Display structured output using << operator
 * Modular design with separate library and main file
-## 🧩 Class Description
+##  Class Description
 The project includes a class `Evidence` which stores:
 * Evidence ID
 * Type (DNA, Fingerprint, etc.)
 * Weight (importance level)
 * Priority (investigation level)
-## 📂 Project Structure
+##  Project Structure
 Crime-Solving-Evidence-Analysis-Library/
 │
 ├── YourLibrary.h   // Class definition & implementation
