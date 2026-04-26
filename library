@@ -1,0 +1,98 @@
+
+#ifndef EVIDENCE_H
+#define EVIDENCE_H
+
+#include <iostream>
+using namespace std;
+
+class Evidence {
+private:
+    string id;
+    string type;
+    double weight;
+    int priority;
+
+public:
+    // Constructors (Function Overloading)
+    Evidence() {
+        id = "";
+        type = "";
+        weight = 0;
+        priority = 0;
+    }
+
+    Evidence(string i, string t) {
+        id = i;
+        type = t;
+        weight = 0;
+        priority = 0;
+    }
+
+    Evidence(string i, string t, double w, int p) {
+        id = i;
+        type = t;
+        weight = w;
+        priority = p;
+    }
+
+    // Function Overloading
+    void setEvidence() {
+        id = "Unknown";
+        type = "Unknown";
+        weight = 0;
+        priority = 0;
+    }
+
+    void setEvidence(string i, string t) {
+        id = i;
+        type = t;
+    }
+
+    void setEvidence(string i, string t, double w, int p) {
+        id = i;
+        type = t;
+        weight = w;
+        priority = p;
+    }
+
+    // Operator Overloading
+
+    // + Combine evidence
+    Evidence operator+(const Evidence& e) {
+        Evidence temp;
+        temp.id = this->id + "+" + e.id;
+        temp.type = this->type + "+" + e.type;
+        temp.weight = this->weight + e.weight;
+        temp.priority = (this->priority + e.priority) / 2;
+        return temp;
+    }
+
+    // - Difference
+    Evidence operator-(const Evidence& e) {
+        Evidence temp;
+        temp.weight = this->weight - e.weight;
+        temp.priority = this->priority - e.priority;
+        temp.type = "Difference";
+        return temp;
+    }
+
+    // Comparison
+    bool operator==(const Evidence& e) {
+        return this->type == e.type;
+    }
+
+    bool operator<(const Evidence& e) {
+        return this->priority < e.priority;
+    }
+
+    // Output
+    friend ostream& operator<<(ostream& out, const Evidence& e) {
+        out << "ID: " << e.id << endl;
+        out << "Type: " << e.type << endl;
+        out << "Weight: " << e.weight << endl;
+        out << "Priority: " << e.priority << endl;
+        return out;
+    }
+};
+
+#endif
