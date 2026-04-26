@@ -1,0 +1,32 @@
+#include "YourLibrary.h"
+
+int main() {
+    Evidence e1, e2, e3, e4;
+
+    // Function Overloading Use
+    e1.setEvidence("E01", "DNA", 5.5, 2);
+    e2.setEvidence("E02", "Fingerprint", 3.0, 3);
+
+    // Operator Overloading
+    e3 = e1 + e2;   // Combine
+    e4 = e1 - e2;   // Difference
+
+    cout << "--- Evidence 1 ---\n" << e1 << endl;
+    cout << "--- Evidence 2 ---\n" << e2 << endl;
+
+    cout << "--- Combined Evidence ---\n" << e3 << endl;
+    cout << "--- Difference Evidence ---\n" << e4 << endl;
+
+    // Comparison
+    if (e1 == e2)
+        cout << "Same Type\n";
+    else
+        cout << "Different Type\n";
+
+    if (e1 < e2)
+        cout << "e1 has lower priority than e2\n";
+    else
+        cout << "e1 has higher or equal priority\n";
+
+    return 0;
+}
